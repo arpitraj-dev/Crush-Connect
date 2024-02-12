@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url("background-image.jpeg");
+        background-size: cover;
+        background-position: center;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 70px;
+        color: yellow;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 300px;
+        margin-top: 20px;
+      }
+
+      .first {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+      }
+
+      .first label {
+        font-size: 16px;
+      }
+
+      .first input {
+        font-size: 16px;
+      }
+
+      .submit-btn {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #my-h1 {
+        letter-spacing: 5px;
+      }
+
+      input {
+        border-radius: 10%;
+        /* max-width: 50vw; */
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid black;
+      }
+
+      input:focus {
+        font-size: 2rem;
+        border: none !important;
+        border-bottom: 1px dashed black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="my-h1">CRUSH CONNECT</h1>
+    <form action="#" method="post">
+      <div class="first">
+        <label for="example" style="font-size: 25px; padding: 5px">You: </label>
+        <input type="text" id="example" name="example" />
+        <label for="loves" style="font-size: 25px; padding: 5px">loves: </label>
+        <input type="text" id="loves" name="loves" />
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </body>
+</html>
