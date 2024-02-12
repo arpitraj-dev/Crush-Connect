@@ -10,22 +10,46 @@
 <body>
 
     <div class="container-fluid">
-        <h1 id="main-h1">CRUSH CONNECT</h1>
-        <div class="form-class">
-            <form action="">
-                <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="addon-wrapping">YOU</span>
-                    <input type="text" class="form-control" placeholder="Alex" aria-label="Username" aria-describedby="addon-wrapping">
-                  </div>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="15vh" height="15vh" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
-                  </svg>
-                  <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="addon-wrapping">LOVES</span>
-                    <input type="text" class="form-control" placeholder="Alexa" aria-label="Username" aria-describedby="addon-wrapping">
-                  </div>
-                <button type="button" style="letter-spacing: 1px; word-spacing: 2px;" class="btn btn-outline-danger btn-lg">CONNECT NOW</button>
-            </form>
+        <div class="overlay-class">
+            <h1 id="main-h1">CRUSH CONNECT</h1>
+            <div class="form-class">
+                <form id="my-form">
+                    <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">YOU</span>
+                        <input type="text" class="form-control w-25" placeholder="Alex" aria-label="Username" aria-describedby="addon-wrapping">
+                      </div>
+                      <div style="text-align: center !important;">
+                          <div class="wrapper">
+                            <svg width="200" height="200" viewBox="0 -25 300 300">
+                                <g stroke-linecap="round" stroke-linejoin="round" stroke="var(--heart-c)" stroke-width="12" fill="transparent">
+                                    <g class="circles">
+                                        <circle cx="100" cy="100" r="50" stroke-dashoffset="314" stroke-dasharray="314">
+                                            <animate attributeName="stroke-dashoffset" from="314" to="0" dur="1000ms" fill="freeze" begin="1000ms"/>
+                                            <animate attributeName="fill" from="#FFCDD2" to="#F06292" dur="300ms" begin="p.end" fill="freeze"/>
+                                        </circle>
+                                        <circle cx="200" cy="100" r="50" stroke-dashoffset="314" stroke-dasharray="314" transform="rotate(180 200 100)">
+                                            <animate id="c" attributeName="stroke-dashoffset" from="314" to="0" dur="1000ms" fill="freeze" begin="1000ms"/>
+                                            <animate attributeName="fill" from="#FFCDD2" to="#F06292" dur="300ms" begin="p.end" fill="freeze"/>
+                                        </circle>
+                                    </g>
+                                    <g class="polygons">
+                                        <polygon points="60,130 240,130 150,220" stroke-dashoffset="450" stroke-dasharray="450">
+                                            <animate id="p" attributeName="stroke-dashoffset" from="450" to="0" dur="1000ms" fill="freeze" begin="c.end"/>
+                                            <animate id="f" attributeName="fill" from="#FFCDD2" to="#F06292" dur="300ms" begin="p.end" fill="freeze"/>
+                                        </polygon>
+                                    </g>
+                        
+                                </g>
+                            </svg>
+                        </div>
+                      </div>
+                      <div class="input-group flex-nowrap">
+                        <span class="input-group-text" id="addon-wrapping">CRUSH</span>
+                        <input type="text" class="form-control" placeholder="Alexa" aria-label="Username" aria-describedby="addon-wrapping">
+                      </div>
+                    <button id="submit-btn" type="submit" style="letter-spacing: 1px; word-spacing: 2px;" class="btn btn-danger btn-lg">CONNECT NOW</button>
+                </form>
+            </div>
         </div>
     </div>
 
