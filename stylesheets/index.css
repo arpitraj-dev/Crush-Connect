@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    overflow-x: hidden !important;
+    font-family: "Montserrat", sans-serif !important;
+    font-optical-sizing: auto !important;
+    font-style: normal !important;
+}
+
+.container-fluid {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+#main-h1 {
+    color: rgb(255,0,0);
+    font-weight: bolder;
+    letter-spacing: 0.5vw;
+    font-size: 10vh;
+    text-align: center;
+}
