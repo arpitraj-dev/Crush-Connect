@@ -7,11 +7,14 @@ const supabaseAnonKey =
 const supabaseU = supabase.createClient(supabaseApi, supabaseAnonKey);
 
 function checkLocalStorage() {
+  let status = "Pending...";
   if (localStorage.getItem("ina") || localStorage.getItem("inb")) {
     document.querySelector(".already-done").style.display = "block";
     document.querySelector(".overlay-class").style.filter = "blur(8px)";
     document.querySelector("#in-a-h5").innerHTML = localStorage.getItem("ina");
     document.querySelector("#in-b-h5").innerHTML = localStorage.getItem("inb");
+    document.getElementById("curr-status").innerHTML = "Status: " + status;
+    document.getElementById("ur-hash").innerHTML = "hashhashhash";
   }
 }
 
@@ -81,7 +84,6 @@ function formProcess(...arr) {
             document.getElementById("modal-data-h3").innerHTML =
               "Looks like someone found themselve a date. It seems you and your crush have the same feelings and have used crush connect!";
           } else {
-            //alert("May the luck be on your side. ;)");
             document.getElementById("exampleModalLabel2").innerHTML =
               "Hang in there!";
             document.getElementById("modal-data-h3").innerHTML =
