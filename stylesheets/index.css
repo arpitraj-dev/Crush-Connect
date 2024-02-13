@@ -72,8 +72,8 @@ input:focus {
 
 .input-group {
     margin: auto;
-    margin-top: 7vh !important;
-    margin-bottom: 7vh !important;
+    margin-top: 5vh !important;
+    margin-bottom: 5vh !important;
     max-width: 60vw;
 }
 
@@ -89,7 +89,7 @@ input:focus {
 }
 
 #submit-btn {
-    margin-top: 7vh;
+    margin-top: 5vh;
 }
 
 :root {
