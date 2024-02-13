@@ -30,8 +30,27 @@ function formProcess(...arr) {
       break;
     }
   }
+
   hashData(hashText).then((rv) => {
-    console.log(rv);
+    supabaseU.from('hashedDataTable').select().then((data, err) => {
+      try {
+        let found = false;
+        for (const i of data.data) {
+          if (i.hashedData == rv) {
+            found = true;
+            break;
+          }
+        }
+        if (found) {
+          //found
+          alert("match found!");
+        } else {
+          //not found
+        }
+      } catch (e) {
+        console.log(err, e);
+      }
+    });
   });
 }
 
@@ -45,15 +64,11 @@ async function hashData(string) {
   return hashHex;
 }
 
-supabaseU.from('hashedDataTable').select().then((data, err) => {
-  console.log(data, err);
-});
-
-supabaseU.from("hashedDataTable").insert({
-  boolEq: false,
-  created_at: "2024-02-13T11:18:37+00:00",
-  id: 4,
-  hashedData: "TeStT"
-}).then((err) => {
-  console.log(err);
-});
+// supabaseU.from("hashedDataTable").insert({
+//   boolEq: false,
+//   created_at: "2024-02-13T11:18:37+00:00",
+//   id: 4,
+//   hashedData: "TeStT"
+// }).then((err) => {
+//   console.log(err);
+// });
