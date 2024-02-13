@@ -44,9 +44,9 @@ function formProcess(...arr) {
         if (found) {
           const {data, error} = await supabaseU.from("hashedDataTable").update({boolEq: true}).eq("hashedData", rv);
       
-          alert("match found!");
+          alert("Looks like somebody found a valentine!!!!!");
         } else {
-          //not found
+          alert("May the luck be on your side. ;)")
           supabaseU.from("hashedDataTable").insert({
             boolEq: false,
             created_at: `now()`,
