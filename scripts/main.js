@@ -9,17 +9,32 @@ const supabaseU = supabase.createClient(supabaseApi, supabaseAnonKey);
 async function checkLocalStorage() {
   if (localStorage.getItem("ina") || localStorage.getItem("inb")) {
     let status = "Pending...";
-    hashData(localStorage.getItem("ina").trim() + localStorage.getItem("inb").trim()).then((hashedData) => {
-      console.log(hashedData);
-      supabaseU.from("hashedDataTable").select("*").eq("hashedData", hashedData).then((data,err) => {
-        if (data.data.length > 0) {
-          if (data.data[0].boolEq)
-            status = "Matched";
-        } else {
-          status = "Unavailable!";
-        }
-      });
-    })
+    // hashData(localStorage.getItem("ina") + localStorage.getItem("inb")).then((hashedData) => {
+    //   console.log(hashedData);
+    //   supabaseU.from("hashedDataTable").select("*").eq("hashedData", hashedData).then((data, err) => {
+    //     console.log(data);
+    //     if (data.data.length > 0) {
+    //       if (data.data[0].boolEq)
+    //         status = "Matched";
+    //       else
+    //         status = "test";
+    //     } else {
+    //       status = "Unavailable!";
+    //     }
+    //   });
+    // })
+    supabaseU.from("hashedDataTable").select("*").eq("hashedData", localStorage.getItem("hash")).then((data, err) => {
+      console.log(data);
+      if (data.data.length > 0) {
+        if (data.data[0].boolEq)
+          status = "Matched";
+        else
+          status = "test";
+      } else {
+        status = "Unavailable!";
+      }
+    });
+
     document.querySelector(".already-done").style.display = "block";
     document.querySelector(".overlay-class").style.filter = "blur(8px)";
     document.querySelector("#in-a-h5").innerHTML = localStorage.getItem("ina");
@@ -32,8 +47,8 @@ async function checkLocalStorage() {
 document.getElementById("submit-btn").addEventListener("click", function (e) {
   e.preventDefault();
 
-  const instaInputA = document.getElementById("in-a").value.trim();
-  const instaInputB = document.getElementById("in-b").value.trim();
+  const instaInputA = document.getElementById("in-a").value.toLowerCase().trim();
+  const instaInputB = document.getElementById("in-b").value.toLowerCase().trim();
 
   if (instaInputA === "" || instaInputB === "" || instaInputA == instaInputB) {
     document.getElementById("exampleModalLabel2").innerHTML =
@@ -72,6 +87,7 @@ function formProcess(...arr) {
   }
 
   hashData(hashText).then((rv) => {
+    localStorage.setItem("hash", rv);
     supabaseU
       .from("hashedDataTable")
       .select()
