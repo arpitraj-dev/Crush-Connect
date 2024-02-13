@@ -16,8 +16,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
-<body>
+<body onload="checkLocalStorage()">
   <div class="container-fluid">
+    <div class="already-done">
+      <div class="already-holder">
+        <h1>Your Response Already Recorded!</h1>
+      </div>
+    </div>
     <div class="overlay-class">
       <h1 id="main-h1">CRUSH CONNECT</h1>
       <div class="how-to-btn">

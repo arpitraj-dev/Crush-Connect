@@ -6,6 +6,14 @@ const supabaseAnonKey =
 
 const supabaseU = supabase.createClient(supabaseApi, supabaseAnonKey);
 
+function checkLocalStorage() {
+  if (localStorage.getItem("ina") || localStorage.getItem("inb")) {
+    document.querySelector(".already-done").style.display = "block";
+    document.querySelector(".overlay-class").style.filter = "blur(8px)";
+    // document.querySelector(".overlay-class").style.filter = "blur(8px)";
+  }
+}
+
 document.getElementById("submit-btn").addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -19,6 +27,9 @@ document.getElementById("submit-btn").addEventListener("click", function (e) {
       "Please specify both your and your crush's instagram unique id to continue.";
   } else {
     formProcess(instaInputA, instaInputB);
+    localStorage.setItem("ina", instaInputA);
+    localStorage.setItem("inb", instaInputB);
+    console.log(localStorage);
   }
 });
 

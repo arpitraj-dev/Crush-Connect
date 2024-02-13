@@ -144,3 +144,25 @@ input:focus {
     margin-top: 5vh !important;
     text-align: center;
 }
+
+.already-done {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999 !important;
+    display: none;
+}
+
+.already-holder {
+    position: relative !important;
+    text-align: center;
+    color: white !important;
+}
+
+.already-holder>h1 {
+    font-weight: bolder;
+    margin-top: 10vh !important;
+}
