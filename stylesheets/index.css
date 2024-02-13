@@ -64,6 +64,7 @@ input {
     border-bottom: 3px solid red !important;
     color: red !important;
     font-size: larger !important;
+    min-width: 200px;
 }
 
 input:focus {
@@ -90,6 +91,7 @@ input:focus {
 
 #submit-btn {
     margin-top: 5vh;
+    margin-bottom: 10vh;
 }
 
 :root {
