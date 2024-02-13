@@ -6,9 +6,20 @@ const supabaseAnonKey =
 
 const supabaseU = supabase.createClient(supabaseApi, supabaseAnonKey);
 
-function checkLocalStorage() {
-  let status = "Pending...";
+async function checkLocalStorage() {
   if (localStorage.getItem("ina") || localStorage.getItem("inb")) {
+    let status = "Pending...";
+    hashData(localStorage.getItem("ina").trim() + localStorage.getItem("inb").trim()).then((hashedData) => {
+      console.log(hashedData);
+      supabaseU.from("hashedDataTable").select("*").eq("hashedData", hashedData).then((data,err) => {
+        if (data.data.length > 0) {
+          if (data.data[0].boolEq)
+            status = "Matched";
+        } else {
+          status = "Unavailable!";
+        }
+      });
+    })
     document.querySelector(".already-done").style.display = "block";
     document.querySelector(".overlay-class").style.filter = "blur(8px)";
     document.querySelector("#in-a-h5").innerHTML = localStorage.getItem("ina");
