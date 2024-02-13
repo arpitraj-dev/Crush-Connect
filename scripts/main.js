@@ -9,7 +9,7 @@ const supabaseU = supabase.createClient(supabaseApi, supabaseAnonKey);
 async function checkLocalStorage() {
   if (localStorage.getItem("ina") || localStorage.getItem("inb")) {
     let status = "Pending...";
-    hashData(localStorage.getItem("hash")).then((hashedData) => {
+    hashData(localStorage.getItem("ina") + localStorage.getItem("inb")).then((hashedData) => {
       console.log(hashedData);
       supabaseU.from("hashedDataTable").select("*").eq("hashedData", hashedData).then((data, err) => {
         console.log(data);
@@ -61,9 +61,6 @@ document.getElementById("submit-btn").addEventListener("click", function (e) {
       "Please specify both your and your crush's instagram unique id to continue.";
   } else {
     formProcess(instaInputA, instaInputB);
-    localStorage.setItem("ina", instaInputA);
-    localStorage.setItem("inb", instaInputB);
-    console.log(localStorage);
   }
 });
 
@@ -83,15 +80,18 @@ function formProcess(...arr) {
     if (arr[0][i] == arr[1][i]) continue;
     else if (arr[0][i] < arr[1][i]) {
       hashText = arr[0] + arr[1];
+      localStorage.setItem("ina", arr[0]);
+      localStorage.setItem("inb", arr[1]);
       break;
     } else {
       hashText = arr[1] + arr[0];
+      localStorage.setItem("ina", arr[1]);
+      localStorage.setItem("inb", arr[0]);
       break;
     }
   }
 
   hashData(hashText).then((rv) => {
-    localStorage.setItem("hash", rv);
     supabaseU
       .from("hashedDataTable")
       .select()
