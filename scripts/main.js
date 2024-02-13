@@ -18,7 +18,7 @@ async function checkLocalStorage() {
           if (data.data[0].boolEq)
             status = "Matched";
           else
-            status = "test";
+            status = "Pending..";
         } else {
           status = "Unavailable!";
         }
