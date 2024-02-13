@@ -13,7 +13,6 @@ async function checkLocalStorage() {
       document.getElementById("ur-hash").innerHTML = "you hash: " + hashedData;
       console.log(hashedData);
       supabaseU.from("hashedDataTable").select("*").eq("hashedData", hashedData).then((data, err) => {
-        console.log(data);
         if (data.data.length > 0) {
           if (data.data[0].boolEq)
             status = "Matched";
