@@ -9,37 +9,41 @@ const supabaseU = supabase.createClient(supabaseApi, supabaseAnonKey);
 async function checkLocalStorage() {
   if (localStorage.getItem("ina") || localStorage.getItem("inb")) {
     let status = "Pending...";
-    // hashData(localStorage.getItem("ina") + localStorage.getItem("inb")).then((hashedData) => {
-    //   console.log(hashedData);
-    //   supabaseU.from("hashedDataTable").select("*").eq("hashedData", hashedData).then((data, err) => {
-    //     console.log(data);
-    //     if (data.data.length > 0) {
-    //       if (data.data[0].boolEq)
-    //         status = "Matched";
+    hashData(localStorage.getItem("hash")).then((hashedData) => {
+      console.log(hashedData);
+      supabaseU.from("hashedDataTable").select("*").eq("hashedData", hashedData).then((data, err) => {
+        console.log(data);
+        if (data.data.length > 0) {
+          if (data.data[0].boolEq)
+            status = "Matched";
+          else
+            status = "test";
+        } else {
+          status = "Unavailable!";
+        }
+        document.getElementById("curr-status").innerHTML = "Status: " + status;
+      });
+    });
+
+    // supabaseU.from("hashedDataTable").select().match({hashedData: localStorage.getItem("hash")}).then((data, err) => {
+    //   console.log(data);
+    //   if (!err) {
+    //     if(data.data[0] > 0) {
+    //       if(data.data[0].boolEq)
+    //         status = "matched";
     //       else
     //         status = "test";
     //     } else {
-    //       status = "Unavailable!";
+    //       status = "unavailable";
     //     }
-    //   });
-    // })
-    supabaseU.from("hashedDataTable").select("*").eq("hashedData", localStorage.getItem("hash")).then((data, err) => {
-      console.log(data);
-      if (data.data.length > 0) {
-        if (data.data[0].boolEq)
-          status = "Matched";
-        else
-          status = "test";
-      } else {
-        status = "Unavailable!";
-      }
-    });
+    //   }
+    //   document.getElementById("curr-status").innerHTML = "Status: " + status;
+    // });
 
     document.querySelector(".already-done").style.display = "block";
     document.querySelector(".overlay-class").style.filter = "blur(8px)";
     document.querySelector("#in-a-h5").innerHTML = localStorage.getItem("ina");
     document.querySelector("#in-b-h5").innerHTML = localStorage.getItem("inb");
-    document.getElementById("curr-status").innerHTML = "Status: " + status;
     document.getElementById("ur-hash").innerHTML = "you hash: " + localStorage.getItem("hash");
   }
 }
