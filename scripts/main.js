@@ -50,9 +50,12 @@ function formProcess(...arr) {
         if (found) {
           const { data, error } = await supabaseU.from("hashedDataTable").update({ boolEq: true }).eq("hashedData", rv);
 
-          alert("Looks like somebody found a valentine!!!!!");
+          document.getElementById("exampleModalLabel2").innerHTML = "Congratulations!!";
+          document.getElementById("modal-data-h3").innerHTML = "Looks like someone found themselve a date. It seems you and your crush have the same feelings and have used crush connect!";
         } else {
-          alert("May the luck be on your side. ;)")
+          //alert("May the luck be on your side. ;)");
+          document.getElementById("exampleModalLabel2").innerHTML = "Hang in there!";
+          document.getElementById("modal-data-h3").innerHTML = "May the luck be on your side. We have registered your response (as a hash). wait till you have any response from your crush ;)";
           supabaseU.from("hashedDataTable").insert({
             boolEq: false,
             created_at: `now()`,
