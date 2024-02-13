@@ -74,7 +74,7 @@ input:focus {
     margin: auto;
     margin-top: 7vh !important;
     margin-bottom: 7vh !important;
-    max-width: 40vw;
+    max-width: 60vw;
 }
 
 .input-group>span {
