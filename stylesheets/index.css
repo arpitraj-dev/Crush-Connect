@@ -174,3 +174,7 @@ input:focus {
     font-weight: bolder;
     margin-top: 10vh !important;
 }
+
+.already-holder>h5 {
+    margin-top: 10vh;
+}

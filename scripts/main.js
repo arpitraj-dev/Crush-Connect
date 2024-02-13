@@ -10,7 +10,8 @@ function checkLocalStorage() {
   if (localStorage.getItem("ina") || localStorage.getItem("inb")) {
     document.querySelector(".already-done").style.display = "block";
     document.querySelector(".overlay-class").style.filter = "blur(8px)";
-    // document.querySelector(".overlay-class").style.filter = "blur(8px)";
+    document.querySelector("#in-a-h5").innerHTML = localStorage.getItem("ina");
+    document.querySelector("#in-b-h5").innerHTML = localStorage.getItem("inb");
   }
 }
 
