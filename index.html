@@ -1,145 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#000" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="theme-color" content="#000" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CRUSH CONNECT- find your crush</title>
 
-  <title>CRUSH CONNECT- find your crush</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="stylesheets/index.css" />
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="stylesheets/index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
+  <body>
+    <div class="container-fluid">
+      <div class="overlay-class">
+        <h1 id="main-h1">CRUSH CONNECT</h1>
+        <div class="how-to-btn">
+          <button
+            type="button"
+            class="btn btn-outline-warning"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            How to Use
+          </button>
+        </div>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  How to Use
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  This Valentine's Day, get to know your crush with our
+                  application.
+                </p>
 
-<body>
-  <div class="container-fluid">
-    <div class="overlay-class">
-      <h1 id="main-h1">CRUSH CONNECT</h1>
-      <div class="how-to-btn">
-        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          How to Use
-        </button>
-      </div>
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">
-                How to Use
-              </h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p>
-                This valentine get to you know your crush, with our
-                application.
-              </p>
-              <ol>
-                <li>Enter your and your crush's instagram handle.</li>
-                <li>Enter connect</li>
-                <li>
-                  If they have already entered uour name, voila you have a
-                  date!
-                </li>
-                <li>
-                  If not, hang in there and key checking the page before this
-                  valentine's day!
-                </li>
-                <li>
-                  Since all the data is <b>hashed</b> your crush is only
-                  yours.
-                </li>
-              </ol>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                Close
-              </button>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    Enter your and your crush's Instagram handles.
+                  </li>
+                  <li class="list-group-item">Press 'connect'</li>
+                  <li class="list-group-item">
+                    If they have already entered your name, voila! You have a
+                    date!
+                  </li>
+                  <li class="list-group-item">
+                    If not, hang in there and keep checking the page before
+                    Valentine's Day!
+                  </li>
+                  <li class="list-group-item">
+                    Since all the data is <b>hashed</b>, your crush is only
+                    yours.
+                  </li>
+                  <li class="list-group-item">
+                    <b>Caution:</b> Only <b>1</b> response per device is
+                    acceptable.
+                  </li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="form-class">
-        <form id="my-form" action="">
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">YOUR INSTA</span>
-            <input required id="in-a" type="text" class="form-control w-25" placeholder="alex_29" aria-label="Username"
-              aria-describedby="addon-wrapping" />
-          </div>
-          <div style="text-align: center !important">
-            <div class="wrapper">
-              <svg width="200" height="200" viewBox="0 -25 300 300">
-                <g stroke-linecap="round" stroke-linejoin="round" stroke="var(--heart-c)" stroke-width="12"
-                  fill="transparent">
-                  <g class="circles">
-                    <circle cx="100" cy="100" r="50" stroke-dashoffset="314" stroke-dasharray="314">
-                      <animate attributeName="stroke-dashoffset" from="314" to="0" dur="1000ms" fill="freeze"
-                        begin="1000ms" />
-                      <animate attributeName="fill" from="#FFCDD2" to="#F06292" dur="300ms" begin="p.end"
-                        fill="freeze" />
-                    </circle>
-                    <circle cx="200" cy="100" r="50" stroke-dashoffset="314" stroke-dasharray="314"
-                      transform="rotate(180 200 100)">
-                      <animate id="c" attributeName="stroke-dashoffset" from="314" to="0" dur="1000ms" fill="freeze"
-                        begin="1000ms" />
-                      <animate attributeName="fill" from="#FFCDD2" to="#F06292" dur="300ms" begin="p.end"
-                        fill="freeze" />
-                    </circle>
+        <div class="form-class">
+          <form id="my-form" action="">
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"
+                >YOUR INSTA</span
+              >
+              <input
+                required
+                id="in-a"
+                type="text"
+                class="form-control w-25"
+                placeholder="alex_29"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+              />
+            </div>
+            <div style="text-align: center !important">
+              <div class="wrapper">
+                <svg width="200" height="200" viewBox="0 -25 300 300">
+                  <g
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke="var(--heart-c)"
+                    stroke-width="12"
+                    fill="transparent"
+                  >
+                    <g class="circles">
+                      <circle
+                        cx="100"
+                        cy="100"
+                        r="50"
+                        stroke-dashoffset="314"
+                        stroke-dasharray="314"
+                      >
+                        <animate
+                          attributeName="stroke-dashoffset"
+                          from="314"
+                          to="0"
+                          dur="1000ms"
+                          fill="freeze"
+                          begin="1000ms"
+                        />
+                        <animate
+                          attributeName="fill"
+                          from="#FFCDD2"
+                          to="#F06292"
+                          dur="300ms"
+                          begin="p.end"
+                          fill="freeze"
+                        />
+                      </circle>
+                      <circle
+                        cx="200"
+                        cy="100"
+                        r="50"
+                        stroke-dashoffset="314"
+                        stroke-dasharray="314"
+                        transform="rotate(180 200 100)"
+                      >
+                        <animate
+                          id="c"
+                          attributeName="stroke-dashoffset"
+                          from="314"
+                          to="0"
+                          dur="1000ms"
+                          fill="freeze"
+                          begin="1000ms"
+                        />
+                        <animate
+                          attributeName="fill"
+                          from="#FFCDD2"
+                          to="#F06292"
+                          dur="300ms"
+                          begin="p.end"
+                          fill="freeze"
+                        />
+                      </circle>
+                    </g>
+                    <g class="polygons">
+                      <polygon
+                        points="60,130 240,130 150,220"
+                        stroke-dashoffset="450"
+                        stroke-dasharray="450"
+                      >
+                        <animate
+                          id="p"
+                          attributeName="stroke-dashoffset"
+                          from="450"
+                          to="0"
+                          dur="1000ms"
+                          fill="freeze"
+                          begin="c.end"
+                        />
+                        <animate
+                          id="f"
+                          attributeName="fill"
+                          from="#FFCDD2"
+                          to="#F06292"
+                          dur="300ms"
+                          begin="p.end"
+                          fill="freeze"
+                        />
+                      </polygon>
+                    </g>
                   </g>
-                  <g class="polygons">
-                    <polygon points="60,130 240,130 150,220" stroke-dashoffset="450" stroke-dasharray="450">
-                      <animate id="p" attributeName="stroke-dashoffset" from="450" to="0" dur="1000ms" fill="freeze"
-                        begin="c.end" />
-                      <animate id="f" attributeName="fill" from="#FFCDD2" to="#F06292" dur="300ms" begin="p.end"
-                        fill="freeze" />
-                    </polygon>
-                  </g>
-                </g>
-              </svg>
+                </svg>
+              </div>
             </div>
-          </div>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">👀's INSTA</span>
-            <input required id="in-b" type="text" class="form-control" placeholder="alexa_01" aria-label="Username"
-              aria-describedby="addon-wrapping" />
-          </div>
-          <button id="submit-btn" type="submit" style="letter-spacing: 1px; word-spacing: 2px"
-            class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-            CONNECT NOW
-          </button>
-        </form>
-      </div>
-      <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel2">
-              </h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="input-group flex-nowrap">
+              <span class="input-group-text" id="addon-wrapping"
+                >👀's INSTA</span
+              >
+              <input
+                required
+                id="in-b"
+                type="text"
+                class="form-control"
+                placeholder="alexa_01"
+                aria-label="Username"
+                aria-describedby="addon-wrapping"
+              />
             </div>
-            <div class="modal-body">
-              <h6 id="modal-data-h3"></h6>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                Close
-              </button>
+            <button
+              id="submit-btn"
+              type="submit"
+              style="letter-spacing: 1px; word-spacing: 2px"
+              class="btn btn-danger btn-lg"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal2"
+            >
+              CONNECT NOW
+            </button>
+          </form>
+        </div>
+        <div
+          class="modal fade"
+          id="exampleModal2"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel2"></h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <h6 id="modal-data-h3"></h6>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="scripts/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-</body>
-
+    <script src="scripts/main.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

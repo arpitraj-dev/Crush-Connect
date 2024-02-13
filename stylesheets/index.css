@@ -1,146 +1,154 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
-    overflow-x: hidden !important;
-    font-family: "Montserrat", sans-serif !important;
-    font-optical-sizing: auto !important;
-    font-style: normal !important;
-    letter-spacing: 3px;
+  overflow-x: hidden !important;
+  font-family: "Montserrat", sans-serif !important;
+  font-optical-sizing: auto !important;
+  font-style: normal !important;
+  letter-spacing: 3px;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont;
-    background: linear-gradient(135deg,
-            #4aeadc 0%,
-            #9778d1 20%,
-            #cf2aba 40%,
-            #ee2c82 60%,
-            #fb6962 80%,
-            #fef84c 100%) fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+  background: linear-gradient(
+      135deg,
+      #4aeadc 0%,
+      #9778d1 20%,
+      #cf2aba 40%,
+      #ee2c82 60%,
+      #fb6962 80%,
+      #fef84c 100%
+    )
+    fixed;
 }
 
 .container-fluid {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 .overlay-class {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #main-h1 {
-    margin-top: 3vh !important;
-    color: rgba(0, 0, 0, 0.4);
-    font-weight: bolder;
-    letter-spacing: 0.5vw;
-    font-size: 10vh;
-    text-align: center;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: red;
-    font-weight: bolder !important;
-    overflow: hidden !important;
+  margin-top: 3vh !important;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: bolder;
+  letter-spacing: 0.5vw;
+  font-size: 10vh;
+  text-align: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
+  font-weight: bolder !important;
+  overflow: hidden !important;
 }
 
 #my-svg {
-    opacity: 75%;
+  opacity: 75%;
+}
+
+ul li {
+  list-style: armenian;
+  list-style-type: disc !important;
 }
 
 ::-webkit-input-placeholder {
-    color: red !important;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: red;
-    font-size: larger;
+  color: red !important;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
+  font-size: larger;
 }
 
 input {
-    height: 7vh;
-    background-color: rgba(0, 0, 0, 0.2) !important;
-    border: none !important;
-    border-bottom: 3px solid red !important;
-    color: red !important;
-    font-size: larger !important;
+  height: 7vh;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  border: none !important;
+  border-bottom: 3px solid red !important;
+  color: red !important;
+  font-size: larger !important;
 }
 
 input:focus {
-    background-color: rgba(0, 0, 0, 0.3) !important;
+  background-color: rgba(0, 0, 0, 0.3) !important;
 }
 
 .input-group {
-    margin: auto;
-    margin-top: 5vh !important;
-    margin-bottom: 5vh !important;
-    max-width: 60vw;
+  margin: auto;
+  margin-top: 5vh !important;
+  margin-bottom: 5vh !important;
+  max-width: 60vw;
 }
 
-.input-group>span {
-    background-color: rgba(255, 0, 0, 1) !important;
-    border: 1px solid red !important;
-    border-bottom: 3px solid red !important;
-    color: white !important;
-    /* min-width: 20vw !important; */
+.input-group > span {
+  background-color: rgba(255, 0, 0, 1) !important;
+  border: 1px solid red !important;
+  border-bottom: 3px solid red !important;
+  color: white !important;
+  /* min-width: 20vw !important; */
 }
 
 #my-form {
-    text-align: center;
+  text-align: center;
 }
 
 #submit-btn {
-    margin-top: 5vh;
-    margin-bottom: 10vh;
+  margin-top: 5vh;
+  margin-bottom: 10vh;
 }
 
 :root {
-    --heart-c: #F06292;
+  --heart-c: #f06292;
 }
 
 .wrapper {
-    overflow: hidden !important;
-    position: relative;
-    font-size: 0;
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
-    border-radius: 50%;
+  overflow: hidden !important;
+  position: relative;
+  font-size: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 50%;
 }
 
 .wrapper::before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 205, 210, 0);
-    width: 30rem;
-    height: 30rem;
-    border-radius: inherit;
-    z-index: -1;
-    animation: wrapper-wave 1200ms cubic-bezier(0.1, 0.5, 0.5, 1) infinite;
-    animation-delay: 3350ms;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 205, 210, 0);
+  width: 30rem;
+  height: 30rem;
+  border-radius: inherit;
+  z-index: -1;
+  animation: wrapper-wave 1200ms cubic-bezier(0.1, 0.5, 0.5, 1) infinite;
+  animation-delay: 3350ms;
 }
 
 .wrapper svg {
-    animation: svg-scale 1200ms cubic-bezier(0.1, 0.5, 0.5, 1) infinite;
-    animation-delay: 3350ms;
+  animation: svg-scale 1200ms cubic-bezier(0.1, 0.5, 0.5, 1) infinite;
+  animation-delay: 3350ms;
 }
 
 @keyframes svg-scale {
-    50% {
-        transform: scale(1.1);
-    }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
 @keyframes wrapper-wave {
-    50% {
-        transform: translate(-50%, -50%) scale(1.3);
-    }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+  }
 }
 
 .how-to-btn {
-    margin-top: 5vh !important;
-    text-align: center;
+  margin-top: 5vh !important;
+  text-align: center;
 }
