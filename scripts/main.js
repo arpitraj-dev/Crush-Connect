@@ -12,6 +12,12 @@ document.getElementById("submit-btn").addEventListener("click", function (e) {
   formProcess(ina, inb);
 });
 
+document.querySelectorAll(".input-group").forEach((e) => {
+  e.addEventListener("click", () => {
+    e.children[1].focus();
+  });
+});
+
 function formProcess(...arr) {
   for (let i = 0; i < arr.length; ++i)
     arr[i] = arr[i].toLowerCase();
@@ -32,7 +38,7 @@ function formProcess(...arr) {
   }
 
   hashData(hashText).then((rv) => {
-    supabaseU.from('hashedDataTable').select().then(async(data, err) => {
+    supabaseU.from('hashedDataTable').select().then(async (data, err) => {
       try {
         let found = false;
         for (const i of data.data) {
@@ -42,8 +48,8 @@ function formProcess(...arr) {
           }
         }
         if (found) {
-          const {data, error} = await supabaseU.from("hashedDataTable").update({boolEq: true}).eq("hashedData", rv);
-      
+          const { data, error } = await supabaseU.from("hashedDataTable").update({ boolEq: true }).eq("hashedData", rv);
+
           alert("Looks like somebody found a valentine!!!!!");
         } else {
           alert("May the luck be on your side. ;)")

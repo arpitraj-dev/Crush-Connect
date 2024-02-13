@@ -64,7 +64,6 @@ input {
     border-bottom: 3px solid red !important;
     color: red !important;
     font-size: larger !important;
-    min-width: 200px;
 }
 
 input:focus {
@@ -83,6 +82,7 @@ input:focus {
     border: 1px solid red !important;
     border-bottom: 3px solid red !important;
     color: white !important;
+    /* min-width: 20vw !important; */
 }
 
 #my-form {
