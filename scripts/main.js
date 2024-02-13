@@ -6,6 +6,34 @@ const supabaseAnonKey =
 
 const supabaseU = supabase.createClient(supabaseApi, supabaseAnonKey);
 
+document.getElementById("submit-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const instaInputA = document.getElementById("in-a").value.toLowerCase().trim();
+  const instaInputB = document.getElementById("in-b").value.toLowerCase().trim();
+
+  if (instaInputA === "" || instaInputB === "" || instaInputA == instaInputB) {
+    document.getElementById("exampleModalLabel2").innerHTML =
+      "Please specify id's";
+    document.getElementById("modal-data-h3").innerHTML =
+      "Please specify both your and your crush's instagram unique id to continue.";
+  } else {
+    formProcess(instaInputA, instaInputB);
+  }
+});
+
+document.querySelectorAll(".input-group").forEach((e) => {
+  e.addEventListener("click", () => {
+    e.children[1].focus();
+  });
+});
+
+document.getElementById("exampleModal2").addEventListener("hide.bs.modal", (e) => {
+  const t = document.getElementById("exampleModalLabel2").innerHTML;
+  if (t == "Congratulations!!" || t == "Hang in there!")
+    window.location.reload();
+});
+
 async function checkLocalStorage() {
   if (localStorage.getItem("ina") || localStorage.getItem("inb")) {
     let status = "Pending...";
@@ -31,28 +59,6 @@ async function checkLocalStorage() {
     document.querySelector("#in-b-h5").innerHTML = localStorage.getItem("inb");
   }
 }
-
-document.getElementById("submit-btn").addEventListener("click", function (e) {
-  e.preventDefault();
-
-  const instaInputA = document.getElementById("in-a").value.toLowerCase().trim();
-  const instaInputB = document.getElementById("in-b").value.toLowerCase().trim();
-
-  if (instaInputA === "" || instaInputB === "" || instaInputA == instaInputB) {
-    document.getElementById("exampleModalLabel2").innerHTML =
-      "Please specify id's";
-    document.getElementById("modal-data-h3").innerHTML =
-      "Please specify both your and your crush's instagram unique id to continue.";
-  } else {
-    formProcess(instaInputA, instaInputB);
-  }
-});
-
-document.querySelectorAll(".input-group").forEach((e) => {
-  e.addEventListener("click", () => {
-    e.children[1].focus();
-  });
-});
 
 function formProcess(...arr) {
   for (let i = 0; i < arr.length; ++i) arr[i] = arr[i].toLowerCase();

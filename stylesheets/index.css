@@ -175,3 +175,7 @@ input:focus {
 .already-holder>h5 {
     margin-top: 10vh;
 }
+
+#ur-hash {
+    font-size: x-small;
+}
