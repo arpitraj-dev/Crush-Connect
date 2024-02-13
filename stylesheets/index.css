@@ -20,7 +20,69 @@ body {
             #ee2c82 60%,
             #fb6962 80%,
             #fef84c 100%) fixed;
+    animation: bodybgcolor 6s ease-in-out infinite;
+    /* background-image: url("../img/bg.jpeg");
+    background-size: cover; */
 }
+
+/* @keyframes bodybgcolor {
+    0% {
+        background: linear-gradient(135deg,
+        #fef84c 0%,
+        #4aeadc 20%,
+        #9778d1 40%,
+        #cf2aba 60%,
+        #ee2c82 80%,
+        #fb6962 100%) fixed;
+    }
+
+    20% {
+        background: linear-gradient(135deg,
+        #fb6962 0%,
+        #4aeadc 20%,
+        #9778d1 40%,
+        #cf2aba 60%,
+        #ee2c82 80%,
+        #fef84c 100%) fixed;
+    }
+
+    40% {
+        background: linear-gradient(135deg,
+        #4aeadc 0%,
+        #9778d1 20%,
+        #cf2aba 40%,
+        #ee2c82 60%,
+        #fb6962 80%,
+        #fef84c 100%) fixed;
+    }
+
+    60% {
+        background: linear-gradient(135deg,
+        #4aeadc 0%,
+        #9778d1 20%,
+        #cf2aba 40%,
+        #ee2c82 60%,
+        #fb6962 80%,
+        #fef84c 100%) fixed;
+    }
+
+    80% {
+        background: linear-gradient(135deg,
+        #4aeadc 0%,
+        #9778d1 20%,
+        #cf2aba 40%,
+        #ee2c82 60%,
+        #fb6962 80%,
+        #fef84c 100%) fixed;
+    }
+
+    100% {
+        background: black;
+    }
+
+    
+
+} */
 
 .container-fluid {
     margin-left: 0 !important;
