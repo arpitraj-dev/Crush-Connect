@@ -3,7 +3,7 @@
 const supabaseApi = "https://hxrrxccfvtyhzpcguajx.supabase.co";
 const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh4cnJ4Y2NmdnR5aHpwY2d1YWp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDc4MTkwOTAsImV4cCI6MjAyMzM5NTA5MH0.fJpt5C1Hy0relVA_COAYA7tnMCPtLNynuB_M2z1C9K8";
 
-const supabaseC = supabase.createClient(supabaseApi, supabaseAnonKey);
+const supabaseU = supabase.createClient(supabaseApi, supabaseAnonKey);
 
 document.getElementById("submit-btn").addEventListener("click", function (e) {
   e.preventDefault();
@@ -45,4 +45,15 @@ async function hashData(string) {
   return hashHex;
 }
 
-console.log(supabaseC);
+supabaseU.from('hashedDataTable').select().then((data, err) => {
+  console.log(data, err);
+});
+
+supabaseU.from("hashedDataTable").insert({
+  boolEq: false,
+  created_at: "2024-02-13T11:18:37+00:00",
+  id: 4,
+  hashedData: "TeStT"
+}).then((err) => {
+  console.log(err);
+});
