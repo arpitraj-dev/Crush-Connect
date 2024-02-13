@@ -32,7 +32,7 @@ function formProcess(...arr) {
   }
 
   hashData(hashText).then((rv) => {
-    supabaseU.from('hashedDataTable').select().then((data, err) => {
+    supabaseU.from('hashedDataTable').select().then(async(data, err) => {
       try {
         let found = false;
         for (const i of data.data) {
@@ -42,13 +42,21 @@ function formProcess(...arr) {
           }
         }
         if (found) {
-          //found
+          const {data, error} = await supabaseU.from("hashedDataTable").update({boolEq: true}).eq("hashedData", rv);
+      
           alert("match found!");
         } else {
           //not found
+          supabaseU.from("hashedDataTable").insert({
+            boolEq: false,
+            created_at: `now()`,
+            hashedData: rv
+          }).then((err) => {
+            console.log(err);
+          });
         }
       } catch (e) {
-        console.log(err, e);
+        console.log(e);
       }
     });
   });
@@ -63,12 +71,3 @@ async function hashData(string) {
     .join('');
   return hashHex;
 }
-
-// supabaseU.from("hashedDataTable").insert({
-//   boolEq: false,
-//   created_at: "2024-02-13T11:18:37+00:00",
-//   id: 4,
-//   hashedData: "TeStT"
-// }).then((err) => {
-//   console.log(err);
-// });
