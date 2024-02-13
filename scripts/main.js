@@ -40,7 +40,7 @@ async function checkLocalStorage() {
     document.querySelector("#in-a-h5").innerHTML = localStorage.getItem("ina");
     document.querySelector("#in-b-h5").innerHTML = localStorage.getItem("inb");
     document.getElementById("curr-status").innerHTML = "Status: " + status;
-    document.getElementById("ur-hash").innerHTML = "hashhashhash";
+    document.getElementById("ur-hash").innerHTML = localStorage.getItem("hash");
   }
 }
 
