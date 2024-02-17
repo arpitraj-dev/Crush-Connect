@@ -6,6 +6,7 @@
     font-optical-sizing: auto !important;
     font-style: normal !important;
     letter-spacing: 3px;
+    word-wrap: break-word;
 }
 
 body {
